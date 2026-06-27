@@ -24,7 +24,7 @@
 
 &mt {
     quick-tap-ms = <150>;
-    flavor = "hold-preferred";
+    flavor = "balanced";
     tapping-term-ms = <300>;
 };
 
