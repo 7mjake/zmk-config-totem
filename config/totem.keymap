@@ -23,10 +23,10 @@
 #define TVP2 5
 
 &mt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+    quick-tap-ms = <150>;
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    require-prior-idle-ms = <150>;
 };
 
 / {
@@ -69,6 +69,71 @@
         };
     };
 
+    behaviors {
+        bspc_del: bspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_DEL";
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        copy: copy {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COPY";
+            #binding-cells = <0>;
+            bindings = <&kp C>, <&kp LG(C)>;
+
+            tapping-term-ms = <150>;
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-tap-dance";
+            label = "PASTE";
+            #binding-cells = <0>;
+            bindings = <&kp V>, <&kp LG(V)>;
+
+            tapping-term-ms = <150>;
+        };
+
+        cut: cut {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CUT";
+            #binding-cells = <0>;
+            bindings = <&kp X>, <&kp LG(X)>;
+
+            tapping-term-ms = <150>;
+        };
+
+        undo: undo {
+            compatible = "zmk,behavior-tap-dance";
+            label = "UNDO";
+            #binding-cells = <0>;
+            bindings = <&kp Z>, <&kp LG(Z)>;
+
+            tapping-term-ms = <150>;
+        };
+
+        new_tab: new_tab {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NEW_TAB";
+            #binding-cells = <0>;
+            bindings = <&kp T>, <&kp LG(T)>;
+
+            tapping-term-ms = <150>;
+        };
+
+        command_palette: command_palette {
+            compatible = "zmk,behavior-tap-dance";
+            label = "COMMAND_PALETTE";
+            #binding-cells = <0>;
+            bindings = <&kp K>, <&kp LG(K)>;
+
+            tapping-term-ms = <150>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -100,10 +165,10 @@
 
         num {
             bindings = <
-        &kp ESC  &trans    &trans    &trans     &kp LBKT          &kp RBKT               &kp NUMBER_7     &kp NUMBER_8  &kp NUMBER_9  &kp EQUAL
-        &mt LEFT_SHIFT A  &mt LEFT_CONTROL LEFT  &mt LEFT_ALT UP  &mt LWIN RIGHT  &kp LPAR  &kp RIGHT_PARENTHESIS  &mt RWIN NUMBER_4  &mt RIGHT_ALT NUMBER_5  &mt RIGHT_CONTROL NUMBER_6  &mt RIGHT_SHIFT MINUS
-&trans  &trans   &trans    &kp DOWN  &trans     &kp LEFT_BRACE    &kp RBRC               &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &trans     &trans
-                           &trans    &trans     &trans            &trans                 &kp KP_NUMBER_0  &kp DOT
+            &kp ESC           &trans                 &trans           &trans          &kp LBKT          &kp RBKT               &kp NUMBER_7       &kp NUMBER_8            &kp NUMBER_9                &kp EQUAL
+            &mt LEFT_SHIFT A  &mt LEFT_CONTROL LEFT  &mt LEFT_ALT UP  &mt LWIN RIGHT  &kp LPAR          &kp RIGHT_PARENTHESIS  &mt RWIN NUMBER_4  &mt RIGHT_ALT NUMBER_5  &mt RIGHT_CONTROL NUMBER_6  &mt RIGHT_SHIFT MINUS
+&caps_word  &trans            &trans                 &kp DOWN         &trans          &kp LEFT_BRACE    &kp RBRC               &kp NUMBER_1       &kp NUMBER_2            &kp NUMBER_3                &trans                 &trans
+                                                     &trans           &trans          &trans            &trans                 &kp KP_NUMBER_0    &kp DOT
             >;
         };
 
@@ -124,10 +189,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp EXCL     &kp AT        &kp HASH          &kp DLLR            &kp PRCNT    &kp CARET     &kp AMPS      &kp RA(U)   &kp SQT       &kp DQT
-        &mt LEFT_SHIFT RA(A)  &mt LEFT_CONTROL C_REWIND  &mt LEFT_ALT C_PLAY_PAUSE  &mt LWIN C_FAST_FORWARD  &trans  &kp C_MUTE  &mt RWIN C_VOL_DN  &mt RIGHT_ALT K_MUTE  &mt RIGHT_CONTROL C_VOL_UP  &mt RIGHT_SHIFT RA(O)
-&trans  &kp RA(F18)  &kp RA(F19)   &trans            &trans              &trans       &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT    &kp BSLH   &trans
-                                   &kp LG(TAB)       &gif                &mo 3        &trans        &kp C_PP      &trans
+        &trans                &trans                     &trans                     &trans                   &trans    &trans  &kp C_BRIGHTNESS_DEC  &kp RA(C_BRIGHTNESS_MINIMUM)  &kp C_BRIGHTNESS_INC        &trans
+        &mt LEFT_SHIFT RA(A)  &mt LEFT_CONTROL C_REWIND  &mt LEFT_ALT C_PLAY_PAUSE  &mt LWIN C_FAST_FORWARD  &trans    &trans  &mt RWIN C_VOL_DN     &mt RIGHT_ALT K_MUTE          &mt RIGHT_CONTROL C_VOL_UP  &mt RIGHT_SHIFT RA(O)
+&trans  &trans                &trans                     &trans                     &trans                   &trans    &trans  &kp C_REWIND          &kp C_PLAY_PAUSE              &kp C_FAST_FORWARD          &trans                 &trans
+                                                         &kp LG(TAB)                &gif                     &mo 3     &trans  &kp C_PP              &trans
             >;
         };
 
@@ -148,10 +213,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &sys_reset  &bt BT_CLR  &out OUT_TOG  &bootloader  &bt BT_NXT    &trans  &kp F7  &kp F8  &kp F9  &kp F12
-        &mt LEFT_SHIFT A  &mt LEFT_CONTROL S  &mt LEFT_ALT D  &mt LWIN F  &trans    &trans  &mt RWIN F4  &mt RIGHT_ALT F5  &mt RIGHT_CONTROL F6  &mt RIGHT_SHIFT F11
-&trans  &trans       &bt BT_PRV  &trans        &trans  &trans    &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                                 &trans        &trans  &trans    &trans  &trans  &trans
+        &sys_reset        &bt BT_CLR          &out OUT_TOG    &bootloader  &bt BT_NXT    &trans  &kp F7       &kp F8            &kp F9                &kp F12
+        &mt LEFT_SHIFT A  &mt LEFT_CONTROL S  &mt LEFT_ALT D  &mt LWIN F   &trans        &trans  &mt RWIN F4  &mt RIGHT_ALT F5  &mt RIGHT_CONTROL F6  &mt RIGHT_SHIFT F11
+&trans  &trans            &bt BT_PRV          &trans          &trans       &trans        &trans  &kp F1       &kp F2            &kp F3                &kp F10              &trans
+                                              &trans          &trans       &trans        &trans  &trans       &trans
             >;
         };
     };
