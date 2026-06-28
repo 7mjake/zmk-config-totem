@@ -84,7 +84,7 @@
             #binding-cells = <0>;
             bindings = <&kp C>, <&kp LG(C)>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <75>;
         };
 
         paste: paste {
@@ -93,7 +93,7 @@
             #binding-cells = <0>;
             bindings = <&kp V>, <&kp LG(V)>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <75>;
         };
 
         cut: cut {
@@ -102,7 +102,7 @@
             #binding-cells = <0>;
             bindings = <&kp X>, <&kp LG(X)>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <75>;
         };
 
         undo: undo {
@@ -111,7 +111,7 @@
             #binding-cells = <0>;
             bindings = <&kp Z>, <&kp LG(Z)>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <75>;
         };
 
         new_tab: new_tab {
@@ -129,7 +129,7 @@
             #binding-cells = <0>;
             bindings = <&mt RIGHT_ALT K>, <&kp LG(K)>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <75>;
         };
 
         select_all: select_all {
@@ -138,7 +138,7 @@
             #binding-cells = <0>;
             bindings = <&mt LSHIFT A>, <&kp LG(A)>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <75>;
         };
     };
 
