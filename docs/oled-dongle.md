@@ -20,11 +20,12 @@ between its GPIO and ground:
 
 | Button | XIAO connections | Behavior |
 | --- | --- | --- |
-| NUM | D0 and GND | Toggle the `NUM` layer |
+| PC | D0 and GND | Toggle PC mode (off/default is Mac mode) |
 | SYM | D1 and GND | Toggle the `SYM` layer |
 
-Press a button again to turn its layer off. If both are active, `SYM` appears
-and takes priority because it is the higher layer.
+Press a button again to turn its layer off. PC mode is intentionally not
+persistent, so every reboot starts in Mac mode. If `SYM` is also active, it
+appears and takes priority because it is the higher layer.
 
 Either dongle button also wakes the OLED. If the keyboard otherwise remains
 idle, the screen blanks again after the normal display timeout.
@@ -48,7 +49,8 @@ The standard OLED build keeps the compact information-dense layout:
 
 - Top left: active USB/Bluetooth output.
 - Top right: one battery row for each half.
-- Bottom right: highest active layer (`BASE`, `NUM`, `SYM`, or `ADJ`).
+- Bottom right: highest active layer (`BASE`, `PC`, `NUM`, `SYM`, `ADJ`, or
+  conditional `NAV`).
 
 The experimental YADS-inspired build uses a compact dashboard layout:
 

@@ -1,6 +1,9 @@
 #include "totem_dongle.overlay"
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
+#define PC 1
+#define SYM 3
+
 / {
     chosen {
         zephyr,display = &oled;
@@ -21,16 +24,16 @@
         auto-enable;
         wakeup-source;
 
-        toggle_num {
+        toggle_pc {
             row = <0>;
             column = <0>;
-            bindings = <&tog 1>;
+            bindings = <&tog PC>;
         };
 
         toggle_sym {
             row = <0>;
             column = <1>;
-            bindings = <&tog 2>;
+            bindings = <&tog SYM>;
         };
     };
 };
