@@ -3,6 +3,12 @@ include:
     shield: totem_dongle
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: totem_dongle-zmk
+  - board: xiao_ble//zmk
+    shield: totem_dongle_oled totem_oled_yads
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: totem_dongle_oled-zmk
   - board: xiao_ble//zmk
     shield: totem_left
   - board: xiao_ble//zmk

@@ -86,6 +86,7 @@
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
         base_layer {
+            display-name = "BASE";
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
             label = "BASE";
@@ -110,6 +111,7 @@
         };
 
         num {
+            display-name = "NUM";
             bindings = <
             &kp ESC           &trans                 &trans           &trans          &kp LBKT          &kp RBKT               &kp NUMBER_7       &kp NUMBER_8            &kp NUMBER_9                &kp EQUAL
             &mt LEFT_SHIFT A  &mt LEFT_CONTROL LEFT  &mt LEFT_ALT UP  &mt LWIN RIGHT  &kp LPAR          &kp RIGHT_PARENTHESIS  &mt RWIN NUMBER_4  &mt RIGHT_ALT NUMBER_5  &mt RIGHT_CONTROL NUMBER_6  &mt RIGHT_SHIFT MINUS
@@ -119,6 +121,7 @@
         };
 
         sim_layer {
+            display-name = "SYM";
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
             label = "SYM";
@@ -143,6 +146,7 @@
         };
 
         adjust_layer {
+            display-name = "ADJ";
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
             label = "ADJ";

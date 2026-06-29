@@ -1,0 +1,3 @@
+# Local and downloaded firmware artifacts
+/*.uf2
+/firmware-*/

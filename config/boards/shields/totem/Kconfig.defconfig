@@ -1,7 +1,7 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_TOTEM_DONGLE
+if SHIELD_TOTEM_DONGLE || SHIELD_TOTEM_DONGLE_OLED
 
 config ZMK_KEYBOARD_NAME
     default "TOTEM"
@@ -20,7 +20,17 @@ config BT_MAX_PAIRED
 
 endif
 
-if SHIELD_TOTEM_LEFT || SHIELD_TOTEM_RIGHT || SHIELD_TOTEM_DONGLE
+if SHIELD_TOTEM_DONGLE_OLED
+
+config I2C
+    default y
+
+config SSD1306
+    default y
+
+endif
+
+if SHIELD_TOTEM_LEFT || SHIELD_TOTEM_RIGHT || SHIELD_TOTEM_DONGLE || SHIELD_TOTEM_DONGLE_OLED
 
 config ZMK_SPLIT
     default y
